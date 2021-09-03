@@ -1,0 +1,52 @@
+@page
+@using EasyAbp.Abp.DynamicPermission.Permissions
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using EasyAbp.Abp.DynamicPermission.Web.Pages.Abp.DynamicPermission.PermissionGrants.PermissionGrant
+@using EasyAbp.Abp.DynamicPermission.Localization
+@using EasyAbp.Abp.DynamicPermission.Web.Menus
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<DynamicPermissionResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["PermissionGrant"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:PermissionDefinition"].Value);
+    PageLayout.Content.MenuItemName = DynamicPermissionMenus.PermissionDefinition;
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Abp/DynamicPermission/PermissionGrants/PermissionGrant/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Abp/DynamicPermission/PermissionGrants/PermissionGrant/index.css"/>
+}
+
+<script>
+    let name = '@Model.PermissionDefinition.Name';
+</script>
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["PermissionGrant"] - @L[Model.PermissionDefinition.DisplayName]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+			    @if (await Authorization.IsGrantedAsync(DynamicPermissionPermissions.PermissionGrant.Manage))
+                {
+                <abp-button id="NewPermissionGrantButton"
+                            text="@L["CreatePermissionGrant"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="PermissionGrantTable" class="nowrap"/>
+    </abp-card-body>
+</abp-card>

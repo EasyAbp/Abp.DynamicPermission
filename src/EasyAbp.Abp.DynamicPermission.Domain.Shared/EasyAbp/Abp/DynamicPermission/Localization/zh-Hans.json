@@ -1,0 +1,29 @@
+{
+  "culture": "zh-Hans",
+  "texts": {
+    "Menu:EasyAbpAbpDynamicPermission": "动态权限",
+    "Permission:PermissionDefinition": "权限定义",
+    "Permission:Create": "新建",
+    "Permission:Update": "编辑",
+    "Permission:Delete": "删除",
+    "Permission:Manage": "管理",
+    "Menu:PermissionDefinition": "权限定义",
+    "PermissionDefinition": "权限定义",
+    "PermissionDefinitionName": "权限名",
+    "PermissionDefinitionDisplayName": "展示名称",
+    "PermissionDefinitionDescription": "描述",
+    "PermissionDefinitionIsPublic": "是否公开",
+    "CreatePermissionDefinition": "新建",
+    "EditPermissionDefinition": "编辑",
+    "PermissionDefinitionDeletionConfirmationMessage": "确认删除权限定义 {0}?",
+    "SuccessfullyDeleted": "删除成功",
+    "Permission:PermissionGrant": "权限授予",
+    "PermissionGrant": "权限授予",
+    "PermissionGrantName": "权限名",
+    "PermissionGrantProviderName": "提供者名",
+    "PermissionGrantProviderKey": "提供者值",
+    "CreatePermissionGrant": "新建",
+    "EditPermissionGrant": "编辑",
+    "PermissionGrantDeletionConfirmationMessage": "确认删除权限授予 {0}?"
+  }
+}
