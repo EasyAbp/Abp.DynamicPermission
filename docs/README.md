@@ -34,4 +34,4 @@ An ABP module that allows you to define and grant dynamic permissions in runtime
 
 ## Road map
 
-Todo.
+- [ ] Make PermissionGrant extensible.
