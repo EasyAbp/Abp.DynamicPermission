@@ -18,7 +18,8 @@ namespace EasyAbp.Abp.DynamicPermission
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
-            context.Services.AddAlwaysAllowAuthorization();
+            // context.Services.AddAlwaysAllowAuthorization();
+            context.Services.AddAuthorizationCore();
         }
 
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
