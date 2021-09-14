@@ -21,13 +21,6 @@ $(function () {
                     items:
                         [
                             {
-                                text: l('PermissionGrant'),
-                                visible: abp.auth.isGranted('EasyAbp.Abp.DynamicPermission.PermissionGrant'),
-                                action: function (data) {
-                                    document.location.href = document.location.origin + '/Abp/DynamicPermission/PermissionGrants/PermissionGrant?name=' + data.record.name;
-                                }
-                            },
-                            {
                                 text: l('Edit'),
                                 visible: abp.auth.isGranted('EasyAbp.Abp.DynamicPermission.PermissionDefinition.Update'),
                                 action: function (data) {

@@ -1,6 +1,7 @@
 {
   "culture": "zh-Hant",
   "texts": {
+    "DynamicPermission": "動態權限",
     "Menu:EasyAbpAbpDynamicPermission": "動態權限",
     "Permission:PermissionDefinition": "權限定義",
     "Permission:Create": "新建",

@@ -1,6 +1,7 @@
 {
   "culture": "en",
   "texts": {
+    "DynamicPermission": "Dynamic permission",
     "Menu:EasyAbpAbpDynamicPermission": "Dynamic permission",
     "Permission:PermissionDefinition": "Permission definition",
     "Permission:Create": "Create",

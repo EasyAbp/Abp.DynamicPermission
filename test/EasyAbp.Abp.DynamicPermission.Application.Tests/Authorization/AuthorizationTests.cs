@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
-using EasyAbp.Abp.DynamicPermission.PermissionDefinitions;
-using EasyAbp.Abp.DynamicPermission.PermissionGrants;
 using Microsoft.AspNetCore.Authorization;
 using Shouldly;
+using Volo.Abp.Authorization.Permissions;
+using Volo.Abp.PermissionManagement;
 using Volo.Abp.Users;
 using Xunit;
 
@@ -12,34 +12,26 @@ namespace EasyAbp.Abp.DynamicPermission.Authorization
     {
         private readonly ICurrentUser _currentUser;
         private readonly IAuthorizationService _authorizationService;
-        private readonly IPermissionGrantManager _permissionGrantManager;
-        private readonly IPermissionDefinitionRepository _permissionDefinitionRepository;
+        private readonly IPermissionManager _permissionManager;
 
         public AuthorizationTests()
         {
             _currentUser = GetRequiredService<ICurrentUser>();
             _authorizationService = GetRequiredService<IAuthorizationService>();
-            _permissionGrantManager = GetRequiredService<IPermissionGrantManager>();
-            _permissionDefinitionRepository = GetRequiredService<IPermissionDefinitionRepository>();
+            _permissionManager = GetRequiredService<IPermissionManager>();
         }
 
          [Fact]
          public async Task Should_Have_Permission_Grant()
          {
              // Arrange
-             
-             const string permissionName = "Permission1";
-             
-             await _permissionDefinitionRepository.InsertAsync(
-                 new PermissionDefinition(permissionName, "Test permission 1", "A permission for test.", true));
 
-             await _permissionGrantManager.TryGrantAsync(permissionName,
-                 UserDynamicPermissionValueProvider.ProviderName, _currentUser.GetId().ToString());
+             await _permissionManager.SetAsync(DynamicPermissionTestConsts.Permission1Name,
+                 UserPermissionValueProvider.ProviderName, _currentUser.GetId().ToString(), true);
 
              // Act
 
-             var isGranted = await _authorizationService.IsGrantedAsync(null,
-                 new DynamicPermissionAuthorizationRequirement(permissionName));
+             var isGranted = await _authorizationService.IsGrantedAsync(DynamicPermissionTestConsts.Permission1Name);
 
              // Assert
              
@@ -51,18 +43,12 @@ namespace EasyAbp.Abp.DynamicPermission.Authorization
          {
              // Arrange
              
-             const string permissionName = "Permission2";
-             
-             await _permissionDefinitionRepository.InsertAsync(
-                 new PermissionDefinition(permissionName, "Test permission 2", "A permission for test.", true));
-
-             await _permissionGrantManager.TryCancelGrantAsync(permissionName,
-                 UserDynamicPermissionValueProvider.ProviderName, _currentUser.GetId().ToString());
+             await _permissionManager.SetAsync(DynamicPermissionTestConsts.Permission2Name,
+                 UserPermissionValueProvider.ProviderName, _currentUser.GetId().ToString(), false);
 
              // Act
 
-             var isGranted = await _authorizationService.IsGrantedAsync(null,
-                 new DynamicPermissionAuthorizationRequirement(permissionName));
+             var isGranted = await _authorizationService.IsGrantedAsync(DynamicPermissionTestConsts.Permission2Name);
 
              // Assert
              

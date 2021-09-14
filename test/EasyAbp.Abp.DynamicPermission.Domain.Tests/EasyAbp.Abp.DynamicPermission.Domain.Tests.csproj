@@ -10,6 +10,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
     <ProjectReference Include="..\EasyAbp.Abp.DynamicPermission.EntityFrameworkCore.Tests\EasyAbp.Abp.DynamicPermission.EntityFrameworkCore.Tests.csproj" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain" Version="$(AbpVersion)" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="$(AbpVersion)" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,3 @@
-using EasyAbp.Abp.DynamicPermission.PermissionGrants;
 using EasyAbp.Abp.DynamicPermission.PermissionDefinitions;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
@@ -20,7 +19,6 @@ namespace EasyAbp.Abp.DynamicPermission.EntityFrameworkCore
                  * options.AddRepository<Question, EfCoreQuestionRepository>();
                  */
                 options.AddRepository<PermissionDefinition, PermissionDefinitionRepository>();
-                options.AddRepository<PermissionGrant, PermissionGrantRepository>();
             });
         }
     }

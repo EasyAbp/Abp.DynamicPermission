@@ -1,7 +1,5 @@
 using EasyAbp.Abp.DynamicPermission.PermissionDefinitions;
 using EasyAbp.Abp.DynamicPermission.PermissionDefinitions.Dtos;
-using EasyAbp.Abp.DynamicPermission.PermissionGrants;
-using EasyAbp.Abp.DynamicPermission.PermissionGrants.Dtos;
 using AutoMapper;
 
 namespace EasyAbp.Abp.DynamicPermission
@@ -15,8 +13,6 @@ namespace EasyAbp.Abp.DynamicPermission
              * into multiple profile classes for a better organization. */
             CreateMap<PermissionDefinition, PermissionDefinitionDto>();
             CreateMap<CreateUpdatePermissionDefinitionDto, PermissionDefinition>(MemberList.Source);
-            CreateMap<PermissionGrant, PermissionGrantDto>();
-            CreateMap<CreateUpdatePermissionGrantDto, PermissionGrant>(MemberList.Source);
         }
     }
 }

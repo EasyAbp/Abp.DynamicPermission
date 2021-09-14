@@ -1,6 +1,7 @@
 {
   "culture": "zh-Hans",
   "texts": {
+    "DynamicPermission": "动态权限",
     "Menu:EasyAbpAbpDynamicPermission": "动态权限",
     "Permission:PermissionDefinition": "权限定义",
     "Permission:Create": "新建",

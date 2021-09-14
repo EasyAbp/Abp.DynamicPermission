@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using EasyAbp.Abp.DynamicPermission.PermissionDefinitions;
-using EasyAbp.Abp.DynamicPermission.PermissionGrants;
 
 namespace EasyAbp.Abp.DynamicPermission.EntityFrameworkCore
 {
@@ -13,7 +12,6 @@ namespace EasyAbp.Abp.DynamicPermission.EntityFrameworkCore
          * public DbSet<Question> Questions { get; set; }
          */
         public DbSet<PermissionDefinition> PermissionDefinitions { get; set; }
-        public DbSet<PermissionGrant> PermissionGrants { get; set; }
 
         public DynamicPermissionDbContext(DbContextOptions<DynamicPermissionDbContext> options) 
             : base(options)

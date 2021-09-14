@@ -9,7 +9,7 @@ namespace EasyAbp.Abp.DynamicPermission.PermissionDefinitions
 {
     public class DynamicPermissionDefinitionStore : IDynamicPermissionDefinitionStore, ITransientDependency
     {
-        protected readonly string CacheKey = string.Empty;
+        public static readonly string CacheKey = string.Empty;
         
         protected IDistributedCache<DynamicPermissionDefinitionCacheItem> Cache { get; }
         protected IPermissionDefinitionRepository PermissionDefinitionRepository { get; }

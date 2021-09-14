@@ -43,4 +43,10 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Abp\DynamicPermission\PermissionGrants\PermissionGrant\CreateModal.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Abp\DynamicPermission\PermissionGrants\PermissionGrant\EditModal.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Abp\DynamicPermission\PermissionGrants\PermissionGrant\Index.cshtml" />
+  </ItemGroup>
+
 </Project>

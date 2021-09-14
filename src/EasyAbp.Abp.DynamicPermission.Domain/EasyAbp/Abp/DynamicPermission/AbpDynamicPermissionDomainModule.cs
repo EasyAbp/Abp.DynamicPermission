@@ -1,6 +1,5 @@
 ﻿using System;
 using EasyAbp.Abp.DynamicPermission.PermissionDefinitions;
-using EasyAbp.Abp.DynamicPermission.PermissionGrants;
 using Microsoft.Extensions.Caching.Distributed;
 using Volo.Abp.Caching;
 using Volo.Abp.Domain;
@@ -19,19 +18,6 @@ namespace EasyAbp.Abp.DynamicPermission
         {
             Configure<AbpDistributedCacheOptions>(options =>
             {
-                options.CacheConfigurators.Add(cacheName =>
-                {
-                    if (cacheName == CacheNameAttribute.GetCacheName(typeof(DynamicPermissionGrantCacheItem)))
-                    {
-                        return new DistributedCacheEntryOptions()
-                        {
-                            AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(60)
-                        };
-                    }
-
-                    return null;
-                });
-                
                 options.CacheConfigurators.Add(cacheName =>
                 {
                     if (cacheName == CacheNameAttribute.GetCacheName(typeof(DynamicPermissionDefinitionCacheItem)))

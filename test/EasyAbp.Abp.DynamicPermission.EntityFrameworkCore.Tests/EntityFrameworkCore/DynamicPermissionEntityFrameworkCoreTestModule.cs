@@ -5,14 +5,16 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.Sqlite;
 using Volo.Abp.Modularity;
+using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 
 namespace EasyAbp.Abp.DynamicPermission.EntityFrameworkCore
 {
     [DependsOn(
         typeof(DynamicPermissionTestBaseModule),
         typeof(AbpDynamicPermissionEntityFrameworkCoreModule),
-        typeof(AbpEntityFrameworkCoreSqliteModule)
-        )]
+        typeof(AbpEntityFrameworkCoreSqliteModule),
+        typeof(AbpPermissionManagementEntityFrameworkCoreModule)
+    )]
     public class DynamicPermissionEntityFrameworkCoreTestModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
@@ -33,8 +35,8 @@ namespace EasyAbp.Abp.DynamicPermission.EntityFrameworkCore
             var connection = new SqliteConnection("Data Source=:memory:");
             connection.Open();
 
-            new DynamicPermissionDbContext(
-                new DbContextOptionsBuilder<DynamicPermissionDbContext>().UseSqlite(connection).Options
+            new DynamicPermissionTestDbContext(
+                new DbContextOptionsBuilder<DynamicPermissionTestDbContext>().UseSqlite(connection).Options
             ).GetService<IRelationalDatabaseCreator>().CreateTables();
             
             return connection;

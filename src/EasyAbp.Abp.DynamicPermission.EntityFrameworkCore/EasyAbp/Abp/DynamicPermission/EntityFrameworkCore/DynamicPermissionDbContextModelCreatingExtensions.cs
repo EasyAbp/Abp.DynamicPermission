@@ -1,4 +1,3 @@
-using EasyAbp.Abp.DynamicPermission.PermissionGrants;
 using EasyAbp.Abp.DynamicPermission.PermissionDefinitions;
 using System;
 using Microsoft.EntityFrameworkCore;
@@ -52,17 +51,6 @@ namespace EasyAbp.Abp.DynamicPermission.EntityFrameworkCore
                 {
                     e.Name,
                 });
-
-                /* Configure more properties here */
-            });
-
-
-            builder.Entity<PermissionGrant>(b =>
-            {
-                b.ToTable(options.TablePrefix + "PermissionGrants", options.Schema);
-                b.ConfigureByConvention(); 
-                
-                b.HasIndex(x => new {x.Name, x.ProviderName, x.ProviderKey});
 
                 /* Configure more properties here */
             });

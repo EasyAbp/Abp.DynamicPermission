@@ -1,5 +1,7 @@
 ﻿using EasyAbp.Abp.DynamicPermission.EntityFrameworkCore;
 using Volo.Abp.Modularity;
+using Volo.Abp.PermissionManagement;
+using Volo.Abp.PermissionManagement.Identity;
 
 namespace EasyAbp.Abp.DynamicPermission
 {
@@ -8,8 +10,10 @@ namespace EasyAbp.Abp.DynamicPermission
      * database independent anyway.
      */
     [DependsOn(
-        typeof(DynamicPermissionEntityFrameworkCoreTestModule)
-        )]
+        typeof(DynamicPermissionEntityFrameworkCoreTestModule),
+        typeof(AbpPermissionManagementDomainModule),
+        typeof(AbpPermissionManagementDomainIdentityModule)
+    )]
     public class DynamicPermissionDomainTestModule : AbpModule
     {
         
