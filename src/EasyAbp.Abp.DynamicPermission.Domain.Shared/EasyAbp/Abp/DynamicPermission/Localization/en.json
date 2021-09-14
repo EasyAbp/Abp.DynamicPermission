@@ -17,14 +17,6 @@
     "CreatePermissionDefinition": "New",
     "EditPermissionDefinition": "Edit",
     "PermissionDefinitionDeletionConfirmationMessage": "Are you sure to delete the permission definition {0}?",
-    "SuccessfullyDeleted": "Successfully deleted",
-    "Permission:PermissionGrant": "Permission grant",
-    "PermissionGrant": "Permission grant",
-    "PermissionGrantName": "Permission name",
-    "PermissionGrantProviderName": "Provider name",
-    "PermissionGrantProviderKey": "Provider key",
-    "CreatePermissionGrant": "New",
-    "EditPermissionGrant": "Edit",
-    "PermissionGrantDeletionConfirmationMessage": "Are you sure to delete the permission grant {0}?"
+    "SuccessfullyDeleted": "Successfully deleted"
   }
 }

@@ -17,14 +17,6 @@
     "CreatePermissionDefinition": "新建",
     "EditPermissionDefinition": "編輯",
     "PermissionDefinitionDeletionConfirmationMessage": "確認刪除權限定義 {0}?",
-    "SuccessfullyDeleted": "刪除成功",
-    "Permission:PermissionGrant": "權限授予",
-    "PermissionGrant": "權限授予",
-    "PermissionGrantName": "權限名",
-    "PermissionGrantProviderName": "提供者名",
-    "PermissionGrantProviderKey": "提供者值",
-    "CreatePermissionGrant": "新建",
-    "EditPermissionGrant": "編輯",
-    "PermissionGrantDeletionConfirmationMessage": "確認刪除權限授予 {0}?"
+    "SuccessfullyDeleted": "刪除成功"
   }
 }

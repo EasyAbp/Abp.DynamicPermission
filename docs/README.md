@@ -25,7 +25,12 @@ An ABP module that allows you to define and grant dynamic permissions in runtime
 
 ## Usage
 
-Todo.
+1. Use the management page to define a dynamic permission.
+
+2. Grant the new permission to roles or users.
+
+![DynamicPermissionDefinitions](/docs/images/DynamicPermissionDefinitions.png)
+![EditRolePermissions](/docs/images/EditRolePermissions.png)
 
 ## Road map
 
