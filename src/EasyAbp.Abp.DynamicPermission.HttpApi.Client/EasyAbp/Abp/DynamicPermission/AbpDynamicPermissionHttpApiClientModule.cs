@@ -7,7 +7,7 @@ namespace EasyAbp.Abp.DynamicPermission
     [DependsOn(
         typeof(AbpDynamicPermissionApplicationContractsModule),
         typeof(AbpHttpClientModule))]
-    public class DynamicPermissionHttpApiClientModule : AbpModule
+    public class AbpDynamicPermissionHttpApiClientModule : AbpModule
     {
         public const string RemoteServiceName = "EasyAbpAbpDynamicPermission";
 

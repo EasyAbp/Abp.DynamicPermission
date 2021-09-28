@@ -10,13 +10,13 @@ namespace EasyAbp.Abp.DynamicPermission
     [DependsOn(
         typeof(AbpDynamicPermissionApplicationContractsModule),
         typeof(AbpAspNetCoreMvcModule))]
-    public class DynamicPermissionHttpApiModule : AbpModule
+    public class AbpDynamicPermissionHttpApiModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)
         {
             PreConfigure<IMvcBuilder>(mvcBuilder =>
             {
-                mvcBuilder.AddApplicationPartIfNotExists(typeof(DynamicPermissionHttpApiModule).Assembly);
+                mvcBuilder.AddApplicationPartIfNotExists(typeof(AbpDynamicPermissionHttpApiModule).Assembly);
             });
         }
 

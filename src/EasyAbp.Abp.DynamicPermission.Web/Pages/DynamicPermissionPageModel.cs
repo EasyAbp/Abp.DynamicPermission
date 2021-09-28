@@ -10,7 +10,7 @@ namespace EasyAbp.Abp.DynamicPermission.Web.Pages
         protected DynamicPermissionPageModel()
         {
             LocalizationResourceType = typeof(DynamicPermissionResource);
-            ObjectMapperContext = typeof(DynamicPermissionWebModule);
+            ObjectMapperContext = typeof(AbpDynamicPermissionWebModule);
         }
     }
 }

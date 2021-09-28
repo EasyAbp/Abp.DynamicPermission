@@ -7,7 +7,7 @@ namespace EasyAbp.Abp.DynamicPermission.MongoDB
 {
     [DependsOn(
         typeof(DynamicPermissionTestBaseModule),
-        typeof(DynamicPermissionMongoDbModule)
+        typeof(AbpDynamicPermissionMongoDbModule)
         )]
     public class DynamicPermissionMongoDbTestModule : AbpModule
     {

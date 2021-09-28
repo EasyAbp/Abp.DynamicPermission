@@ -41,7 +41,7 @@ using Volo.Abp.VirtualFileSystem;
 namespace EasyAbp.Abp.DynamicPermission
 {
     [DependsOn(
-        typeof(DynamicPermissionWebModule),
+        typeof(AbpDynamicPermissionWebModule),
         typeof(AbpDynamicPermissionApplicationModule),
         typeof(AbpDynamicPermissionEntityFrameworkCoreModule),
         typeof(AbpAuditLoggingEntityFrameworkCoreModule),
@@ -86,7 +86,7 @@ namespace EasyAbp.Abp.DynamicPermission
                     options.FileSets.ReplaceEmbeddedByPhysical<AbpDynamicPermissionDomainModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}EasyAbp.Abp.DynamicPermission.Domain", Path.DirectorySeparatorChar)));
                     options.FileSets.ReplaceEmbeddedByPhysical<AbpDynamicPermissionApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}EasyAbp.Abp.DynamicPermission.Application.Contracts", Path.DirectorySeparatorChar)));
                     options.FileSets.ReplaceEmbeddedByPhysical<AbpDynamicPermissionApplicationModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}EasyAbp.Abp.DynamicPermission.Application", Path.DirectorySeparatorChar)));
-                    options.FileSets.ReplaceEmbeddedByPhysical<DynamicPermissionWebModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}EasyAbp.Abp.DynamicPermission.Web", Path.DirectorySeparatorChar)));
+                    options.FileSets.ReplaceEmbeddedByPhysical<AbpDynamicPermissionWebModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}EasyAbp.Abp.DynamicPermission.Web", Path.DirectorySeparatorChar)));
                 });
             }
 

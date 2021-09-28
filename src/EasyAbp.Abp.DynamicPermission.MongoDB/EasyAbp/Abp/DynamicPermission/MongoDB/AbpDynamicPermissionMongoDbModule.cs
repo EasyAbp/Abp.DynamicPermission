@@ -8,7 +8,7 @@ namespace EasyAbp.Abp.DynamicPermission.MongoDB
         typeof(AbpDynamicPermissionDomainModule),
         typeof(AbpMongoDbModule)
         )]
-    public class DynamicPermissionMongoDbModule : AbpModule
+    public class AbpDynamicPermissionMongoDbModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {

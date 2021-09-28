@@ -4,7 +4,7 @@ using Volo.Abp.Modularity;
 namespace EasyAbp.Abp.DynamicPermission
 {
     [DependsOn(
-        typeof(DynamicPermissionHttpApiClientModule),
+        typeof(AbpDynamicPermissionHttpApiClientModule),
         typeof(AbpHttpClientIdentityModelModule)
         )]
     public class DynamicPermissionConsoleApiClientModule : AbpModule

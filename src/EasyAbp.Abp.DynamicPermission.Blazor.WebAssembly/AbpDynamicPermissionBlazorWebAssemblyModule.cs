@@ -5,7 +5,7 @@ namespace EasyAbp.Abp.DynamicPermission.Blazor.WebAssembly
 {
     [DependsOn(
         typeof(AbpDynamicPermissionBlazorModule),
-        typeof(DynamicPermissionHttpApiClientModule),
+        typeof(AbpDynamicPermissionHttpApiClientModule),
         typeof(AbpAspNetCoreComponentsWebAssemblyThemingModule)
         )]
     public class AbpDynamicPermissionBlazorWebAssemblyModule : AbpModule

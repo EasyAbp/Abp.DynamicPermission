@@ -13,22 +13,22 @@ using EasyAbp.Abp.DynamicPermission.Permissions;
 namespace EasyAbp.Abp.DynamicPermission.Web
 {
     [DependsOn(
-        typeof(DynamicPermissionHttpApiModule),
+        typeof(AbpDynamicPermissionHttpApiModule),
         typeof(AbpAspNetCoreMvcUiThemeSharedModule),
         typeof(AbpAutoMapperModule)
         )]
-    public class DynamicPermissionWebModule : AbpModule
+    public class AbpDynamicPermissionWebModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)
         {
             context.Services.PreConfigure<AbpMvcDataAnnotationsLocalizationOptions>(options =>
             {
-                options.AddAssemblyResource(typeof(DynamicPermissionResource), typeof(DynamicPermissionWebModule).Assembly);
+                options.AddAssemblyResource(typeof(DynamicPermissionResource), typeof(AbpDynamicPermissionWebModule).Assembly);
             });
 
             PreConfigure<IMvcBuilder>(mvcBuilder =>
             {
-                mvcBuilder.AddApplicationPartIfNotExists(typeof(DynamicPermissionWebModule).Assembly);
+                mvcBuilder.AddApplicationPartIfNotExists(typeof(AbpDynamicPermissionWebModule).Assembly);
             });
         }
 
@@ -41,13 +41,13 @@ namespace EasyAbp.Abp.DynamicPermission.Web
 
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.AddEmbedded<DynamicPermissionWebModule>();
+                options.FileSets.AddEmbedded<AbpDynamicPermissionWebModule>();
             });
 
-            context.Services.AddAutoMapperObjectMapper<DynamicPermissionWebModule>();
+            context.Services.AddAutoMapperObjectMapper<AbpDynamicPermissionWebModule>();
             Configure<AbpAutoMapperOptions>(options =>
             {
-                options.AddMaps<DynamicPermissionWebModule>(validate: true);
+                options.AddMaps<AbpDynamicPermissionWebModule>(validate: true);
             });
 
             Configure<RazorPagesOptions>(options =>
