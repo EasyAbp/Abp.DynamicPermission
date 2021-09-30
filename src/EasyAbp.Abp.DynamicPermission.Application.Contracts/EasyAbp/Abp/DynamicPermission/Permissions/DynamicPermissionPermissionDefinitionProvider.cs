@@ -14,9 +14,6 @@ namespace EasyAbp.Abp.DynamicPermission.Permissions
             permissionDefinitionPermission.AddChild(DynamicPermissionPermissions.PermissionDefinition.Create, L("Permission:Create"));
             permissionDefinitionPermission.AddChild(DynamicPermissionPermissions.PermissionDefinition.Update, L("Permission:Update"));
             permissionDefinitionPermission.AddChild(DynamicPermissionPermissions.PermissionDefinition.Delete, L("Permission:Delete"));
-
-            var permissionGrantPermission = myGroup.AddPermission(DynamicPermissionPermissions.PermissionGrant.Default, L("Permission:PermissionGrant"));
-            permissionGrantPermission.AddChild(DynamicPermissionPermissions.PermissionGrant.Manage, L("Permission:Manage"));
         }
 
         private static LocalizableString L(string name)

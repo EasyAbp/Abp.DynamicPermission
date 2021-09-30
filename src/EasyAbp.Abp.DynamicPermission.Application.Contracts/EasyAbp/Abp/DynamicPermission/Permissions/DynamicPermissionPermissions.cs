@@ -18,11 +18,5 @@ namespace EasyAbp.Abp.DynamicPermission.Permissions
             public const string Create = Default + ".Create";
             public const string Delete = Default + ".Delete";
         }
-
-        public class PermissionGrant
-        {
-            public const string Default = GroupName + ".PermissionGrant";
-            public const string Manage = Default + ".Manage";
-        }
     }
 }
