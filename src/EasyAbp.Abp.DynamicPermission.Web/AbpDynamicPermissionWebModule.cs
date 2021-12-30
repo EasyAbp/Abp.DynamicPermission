@@ -13,7 +13,7 @@ using EasyAbp.Abp.DynamicPermission.Permissions;
 namespace EasyAbp.Abp.DynamicPermission.Web
 {
     [DependsOn(
-        typeof(AbpDynamicPermissionHttpApiModule),
+        typeof(AbpDynamicPermissionApplicationContractsModule),
         typeof(AbpAspNetCoreMvcUiThemeSharedModule),
         typeof(AbpAutoMapperModule)
         )]

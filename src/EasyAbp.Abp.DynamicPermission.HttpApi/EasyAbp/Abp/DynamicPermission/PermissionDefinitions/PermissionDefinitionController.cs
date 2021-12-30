@@ -8,7 +8,7 @@ using Volo.Abp.Application.Dtos;
 
 namespace EasyAbp.Abp.DynamicPermission.PermissionDefinitions
 {
-    [RemoteService(Name = "DynamicPermissionPermissionDefinition")]
+    [RemoteService(Name = AbpDynamicPermissionRemoteServiceConsts.RemoteServiceName)]
     [Route("/api/abp/dynamic-permission/permission-definition")]
     public class PermissionDefinitionController : DynamicPermissionController, IPermissionDefinitionAppService
     {

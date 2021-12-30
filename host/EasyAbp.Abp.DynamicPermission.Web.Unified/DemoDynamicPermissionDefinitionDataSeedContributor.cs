@@ -7,14 +7,14 @@ using Volo.Abp.Uow;
 
 namespace EasyAbp.Abp.DynamicPermission
 {
-    public class DemoDynamicPermissionDefinitionDataSeeder : IDataSeeder, ITransientDependency
+    public class DemoDynamicPermissionDefinitionDataSeedContributor : IDataSeedContributor, ITransientDependency
     {
         protected const string PermissionDefinitionDemo1Name = "Permission1";
         protected const string PermissionDefinitionDemo2Name = "Permission2";
         
         private readonly IPermissionDefinitionRepository _permissionDefinitionRepository;
 
-        public DemoDynamicPermissionDefinitionDataSeeder(
+        public DemoDynamicPermissionDefinitionDataSeedContributor(
             IPermissionDefinitionRepository permissionDefinitionRepository)
         {
             _permissionDefinitionRepository = permissionDefinitionRepository;

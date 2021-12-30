@@ -66,7 +66,7 @@ namespace EasyAbp.Abp.DynamicPermission
             {
                 httpClient.SetBearerToken(accessToken);
 
-                var url = _configuration["RemoteServices:DynamicPermission:BaseUrl"] +
+                var url = _configuration["RemoteServices:EasyAbpAbpDynamicPermission:BaseUrl"] +
                           "api/DynamicPermission/sample/authorized";
 
                 var responseMessage = await httpClient.GetAsync(url);
@@ -127,7 +127,7 @@ namespace EasyAbp.Abp.DynamicPermission
             {
                 httpClient.SetBearerToken(tokenResponse.AccessToken);
 
-                var url = _configuration["RemoteServices:DynamicPermission:BaseUrl"] +
+                var url = _configuration["RemoteServices:EasyAbpAbpDynamicPermission:BaseUrl"] +
                           "api/DynamicPermission/sample/authorized";
 
                 var responseMessage = await httpClient.GetAsync(url);

@@ -36,7 +36,7 @@ namespace EasyAbp.Abp.DynamicPermission.PermissionDefinitions
         {
             // TODO: AbpHelper generated
             return await AsyncExecuter.FirstOrDefaultAsync(
-                _repository.Where(e =>
+                (await _repository.GetQueryableAsync()).Where(e =>
                     e.Name == id.Name
                 )
             ); 
