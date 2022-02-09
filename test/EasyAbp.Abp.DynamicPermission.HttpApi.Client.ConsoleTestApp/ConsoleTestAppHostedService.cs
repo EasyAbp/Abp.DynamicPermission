@@ -18,17 +18,17 @@ namespace EasyAbp.Abp.DynamicPermission.HttpApi.Client.ConsoleTestApp
 
         public async Task StartAsync(CancellationToken cancellationToken)
         {
-            using (var application = AbpApplicationFactory.Create<DynamicPermissionConsoleApiClientModule>(options=>
+            using (var application = await AbpApplicationFactory.CreateAsync<DynamicPermissionConsoleApiClientModule>(options=>
             {
                 options.Services.ReplaceConfiguration(_configuration);
             }))
             {
-                application.Initialize();
+                await application.InitializeAsync();
 
                 var demo = application.ServiceProvider.GetRequiredService<ClientDemoService>();
                 await demo.RunAsync();
 
-                application.Shutdown();
+                await application.ShutdownAsync();
             }
         }
 
