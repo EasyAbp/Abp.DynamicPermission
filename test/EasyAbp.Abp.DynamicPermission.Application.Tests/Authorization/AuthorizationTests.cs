@@ -21,38 +21,24 @@ namespace EasyAbp.Abp.DynamicPermission.Authorization
             _permissionManager = GetRequiredService<IPermissionManager>();
         }
 
-         [Fact]
-         public async Task Should_Have_Permission_Grant()
-         {
-             // Arrange
+        [Fact]
+        public async Task Should_Have_Permission_Grant()
+        {
+            (await _authorizationService.IsGrantedAsync(DynamicPermissionTestConsts.Permission1Name)).ShouldBe(false);
 
-             await _permissionManager.SetAsync(DynamicPermissionTestConsts.Permission1Name,
-                 UserPermissionValueProvider.ProviderName, _currentUser.GetId().ToString(), true);
+            await _permissionManager.SetAsync(DynamicPermissionTestConsts.Permission1Name,
+                UserPermissionValueProvider.ProviderName, _currentUser.GetId().ToString(), true);
 
-             // Act
+            (await _authorizationService.IsGrantedAsync(DynamicPermissionTestConsts.Permission1Name)).ShouldBe(true);
+        }
 
-             var isGranted = await _authorizationService.IsGrantedAsync(DynamicPermissionTestConsts.Permission1Name);
+        [Fact]
+        public async Task Should_Not_Have_Permission_Grant()
+        {
+            await _permissionManager.SetAsync(DynamicPermissionTestConsts.Permission2Name,
+                UserPermissionValueProvider.ProviderName, _currentUser.GetId().ToString(), false);
 
-             // Assert
-             
-             isGranted.ShouldBe(true);
-         }
-         
-         [Fact]
-         public async Task Should_Not_Have_Permission_Grant()
-         {
-             // Arrange
-             
-             await _permissionManager.SetAsync(DynamicPermissionTestConsts.Permission2Name,
-                 UserPermissionValueProvider.ProviderName, _currentUser.GetId().ToString(), false);
-
-             // Act
-
-             var isGranted = await _authorizationService.IsGrantedAsync(DynamicPermissionTestConsts.Permission2Name);
-
-             // Assert
-             
-             isGranted.ShouldBe(false);
-         }
+            (await _authorizationService.IsGrantedAsync(DynamicPermissionTestConsts.Permission2Name)).ShouldBe(false);
+        }
     }
 }
