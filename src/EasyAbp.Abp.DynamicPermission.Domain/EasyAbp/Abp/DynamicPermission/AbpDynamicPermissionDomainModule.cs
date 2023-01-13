@@ -1,35 +1,22 @@
-﻿using System;
-using EasyAbp.Abp.DynamicPermission.PermissionDefinitions;
-using Microsoft.Extensions.Caching.Distributed;
-using Volo.Abp.Caching;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Domain;
 using Volo.Abp.Modularity;
+using Volo.Abp.PermissionManagement;
 
 namespace EasyAbp.Abp.DynamicPermission
 {
     [DependsOn(
-        typeof(AbpCachingModule),
         typeof(AbpDddDomainModule),
+        typeof(AbpPermissionManagementDomainModule),
         typeof(AbpDynamicPermissionDomainSharedModule)
     )]
     public class AbpDynamicPermissionDomainModule : AbpModule
     {
-        public override void PreConfigureServices(ServiceConfigurationContext context)
+        public override void ConfigureServices(ServiceConfigurationContext context)
         {
-            Configure<AbpDistributedCacheOptions>(options =>
+            context.Services.Configure<PermissionManagementOptions>(options =>
             {
-                options.CacheConfigurators.Add(cacheName =>
-                {
-                    if (cacheName == CacheNameAttribute.GetCacheName(typeof(DynamicPermissionDefinitionCacheItem)))
-                    {
-                        return new DistributedCacheEntryOptions()
-                        {
-                            AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(3600)
-                        };
-                    }
-
-                    return null;
-                });
+                options.IsDynamicPermissionStoreEnabled = true;
             });
         }
     }

@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Caching" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.Ddd.Domain" Version="$(AbpVersion)" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain" Version="$(AbpVersion)" />
     <ProjectReference Include="..\EasyAbp.Abp.DynamicPermission.Domain.Shared\EasyAbp.Abp.DynamicPermission.Domain.Shared.csproj" />
   </ItemGroup>
 

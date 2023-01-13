@@ -2,7 +2,6 @@
 using EasyAbp.Abp.DynamicPermission.PermissionDefinitions;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
-using Volo.Abp.Guids;
 using Volo.Abp.MultiTenancy;
 
 namespace EasyAbp.Abp.DynamicPermission
@@ -10,16 +9,13 @@ namespace EasyAbp.Abp.DynamicPermission
     public class DynamicPermissionDataSeedContributor : IDataSeedContributor, ITransientDependency
     {
         private readonly IPermissionDefinitionRepository _permissionDefinitionRepository;
-        private readonly IGuidGenerator _guidGenerator;
         private readonly ICurrentTenant _currentTenant;
 
         public DynamicPermissionDataSeedContributor(
             IPermissionDefinitionRepository permissionDefinitionRepository,
-            IGuidGenerator guidGenerator,
             ICurrentTenant currentTenant)
         {
             _permissionDefinitionRepository = permissionDefinitionRepository;
-            _guidGenerator = guidGenerator;
             _currentTenant = currentTenant;
         }
 
