@@ -19,16 +19,18 @@ namespace EasyAbp.Abp.DynamicPermission.Blazor.Menus
         private async Task ConfigureMainMenuAsync(MenuConfigurationContext context)
         {
             var l = context.GetLocalizer<DynamicPermissionResource>();
-            
-            var abpDynamicPermissionMenuItem = context.Menu.Items.GetOrAdd(
+
+            var abpDynamicPermissionMenuItem = context.Menu.GetAdministration().Items.GetOrAdd(
                 i => i.Name == DynamicPermissionMenus.Prefix,
-                () => new ApplicationMenuItem(DynamicPermissionMenus.Prefix, l["Menu:EasyAbpAbpDynamicPermission"])
+                () => new ApplicationMenuItem(DynamicPermissionMenus.Prefix, l["Menu:EasyAbpAbpDynamicPermission"],
+                    icon: "fa fa-user-shield")
             );
-            
+
             if (await context.IsGrantedAsync(DynamicPermissionPermissions.PermissionDefinition.Default))
             {
                 abpDynamicPermissionMenuItem.AddItem(
-                    new ApplicationMenuItem(DynamicPermissionMenus.PermissionDefinition, l["Menu:PermissionDefinition"], "/Abp/DynamicPermission/PermissionDefinitions/PermissionDefinition")
+                    new ApplicationMenuItem(DynamicPermissionMenus.PermissionDefinition, l["Menu:PermissionDefinition"],
+                        "/Abp/DynamicPermission/PermissionDefinitions/PermissionDefinition")
                 );
             }
         }
