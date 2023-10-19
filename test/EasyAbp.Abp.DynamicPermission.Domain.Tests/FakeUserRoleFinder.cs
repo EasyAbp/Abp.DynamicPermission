@@ -3,13 +3,17 @@ using System.Threading.Tasks;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.Identity;
 
-namespace EasyAbp.Abp.DynamicPermission
+namespace EasyAbp.Abp.DynamicPermission;
+
+public class FakeUserRoleFinder : IUserRoleFinder, ITransientDependency
 {
-    public class FakeUserRoleFinder : IUserRoleFinder, ITransientDependency
+    public Task<string[]> GetRolesAsync(Guid userId)
     {
-        public Task<string[]> GetRolesAsync(Guid userId)
-        {
-            return Task.FromResult(new[] {"normal-user"});
-        }
+        return GetRoleNamesAsync(userId);
+    }
+
+    public Task<string[]> GetRoleNamesAsync(Guid userId)
+    {
+        return Task.FromResult(new[] { "normal-user" });
     }
 }
