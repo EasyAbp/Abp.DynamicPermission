@@ -2,7 +2,6 @@
     <PropertyGroup>
 
         <AbpVersion>7.4.0</AbpVersion>
-        <EasyAbpAbpTreesModuleVersion>2.14.0</EasyAbpAbpTreesModuleVersion>
 
     </PropertyGroup>
 </Project>
