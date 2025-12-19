@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using EasyAbp.Abp.DynamicPermission.Localization;
 using EasyAbp.Abp.DynamicPermission.Permissions;
 using EasyAbp.Abp.DynamicPermission.PermissionDefinitions.Dtos;
 using Volo.Abp.Application.Dtos;
@@ -22,6 +23,9 @@ namespace EasyAbp.Abp.DynamicPermission.PermissionDefinitions
         public PermissionDefinitionAppService(IPermissionDefinitionRepository repository) : base(repository)
         {
             _repository = repository;
+
+            LocalizationResource = typeof(DynamicPermissionResource);
+            ObjectMapperContext = typeof(AbpDynamicPermissionApplicationModule);
         }
         
         protected override Task DeleteByIdAsync(PermissionDefinitionKey id)
