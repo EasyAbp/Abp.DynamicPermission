@@ -48,7 +48,7 @@ namespace EasyAbp.Abp.DynamicPermission.PermissionDefinitions
 
             await _permissionDefinitionRecordRepository.InsertAsync(new PermissionDefinitionRecord(
                 _guidGenerator.Create(), DynamicPermissionGroupName, eventData.Entity.Name, null,
-                eventData.Entity.DisplayName), true);
+                null, null, eventData.Entity.DisplayName), true);
 
             await ClearStoreCacheAsync();
         }

@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using EasyAbp.Abp.DynamicPermission.EntityFrameworkCore;
 using EasyAbp.Abp.DynamicPermission.MultiTenancy;
 using EasyAbp.Abp.DynamicPermission.Web;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.Swagger;
 using Volo.Abp;
 using Volo.Abp.Account;
