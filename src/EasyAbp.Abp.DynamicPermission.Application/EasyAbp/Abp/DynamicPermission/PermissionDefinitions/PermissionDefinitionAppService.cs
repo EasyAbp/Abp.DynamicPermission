@@ -28,6 +28,26 @@ namespace EasyAbp.Abp.DynamicPermission.PermissionDefinitions
             ObjectMapperContext = typeof(AbpDynamicPermissionApplicationModule);
         }
         
+        protected override Task<PermissionDefinition> MapToEntityAsync(CreateUpdatePermissionDefinitionDto createInput)
+        {
+            return Task.FromResult(new PermissionDefinition(
+                createInput.Name,
+                createInput.DisplayName,
+                createInput.Description,
+                createInput.IsPublic));
+        }
+
+        protected override Task MapToEntityAsync(CreateUpdatePermissionDefinitionDto updateInput, PermissionDefinition entity)
+        {
+            entity.Update(
+                updateInput.Name,
+                updateInput.DisplayName,
+                updateInput.Description,
+                updateInput.IsPublic);
+
+            return Task.CompletedTask;
+        }
+
         protected override Task DeleteByIdAsync(PermissionDefinitionKey id)
         {
             // TODO: AbpHelper generated
