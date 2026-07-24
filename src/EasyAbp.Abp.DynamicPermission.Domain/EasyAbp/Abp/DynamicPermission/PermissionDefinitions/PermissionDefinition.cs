@@ -37,5 +37,18 @@ namespace EasyAbp.Abp.DynamicPermission.PermissionDefinitions
             Description = description;
             IsPublic = isPublic;
         }
+
+        public void Update(
+            string name,
+            string displayName,
+            string description,
+            bool isPublic
+        )
+        {
+            Name = name;
+            DisplayName = displayName;
+            Description = description;
+            IsPublic = isPublic;
+        }
     }
 }

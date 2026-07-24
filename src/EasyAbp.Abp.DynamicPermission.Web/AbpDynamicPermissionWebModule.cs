@@ -4,7 +4,7 @@ using EasyAbp.Abp.DynamicPermission.Localization;
 using EasyAbp.Abp.DynamicPermission.Web.Menus;
 using Volo.Abp.AspNetCore.Mvc.Localization;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
-using Volo.Abp.AutoMapper;
+using Volo.Abp.Mapperly;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
@@ -15,7 +15,7 @@ namespace EasyAbp.Abp.DynamicPermission.Web
     [DependsOn(
         typeof(AbpDynamicPermissionApplicationContractsModule),
         typeof(AbpAspNetCoreMvcUiThemeSharedModule),
-        typeof(AbpAutoMapperModule)
+        typeof(AbpMapperlyModule)
         )]
     public class AbpDynamicPermissionWebModule : AbpModule
     {
@@ -44,11 +44,7 @@ namespace EasyAbp.Abp.DynamicPermission.Web
                 options.FileSets.AddEmbedded<AbpDynamicPermissionWebModule>();
             });
 
-            context.Services.AddAutoMapperObjectMapper<AbpDynamicPermissionWebModule>();
-            Configure<AbpAutoMapperOptions>(options =>
-            {
-                options.AddMaps<AbpDynamicPermissionWebModule>(validate: true);
-            });
+            context.Services.AddMapperlyObjectMapper<AbpDynamicPermissionWebModule>();
 
             Configure<RazorPagesOptions>(options =>
             {
